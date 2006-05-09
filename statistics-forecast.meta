@@ -1,0 +1,5 @@
+--- #YAML:1.0
+name: statistics-forecast
+version: 0.1
+license: perl
+distribution_type: module

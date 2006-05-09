@@ -242,7 +242,7 @@ sub dump {
 
 =head1 AUTHOR
 
-This module was developed by Alex Falcao (webmaster@brfic.com).
+This module was developed by Alex Falcao (alexjfalcao@hotmail.com) http://webmaster.brfic.com.
 
 =head1 STATUS OF THE MODULE
 
