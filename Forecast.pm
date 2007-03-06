@@ -1,32 +1,10 @@
 package Statistics::Forecast;
 
-
 require 5.005_62;
 use strict;
 use warnings;
 
-require Exporter;
-
-our @ISA = qw(Exporter);
-
-# Items to export into callers namespace by default. Note: do not export
-# names by default without a very good reason. Use EXPORT_OK instead.
-# Do not simply export all your public functions/methods/constants.
-
-# This allows declaration	use CSCIE13::Lecture ':all';
-# If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
-# will save memory.
-our %EXPORT_TAGS = ( 'all' => [ qw(
-    &calc	
-) ] );
-
-our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-our @EXPORT = qw(
-	
-);
-
-our $VERSION = '0.1';
+our $VERSION = '0.3';
 
 =head1 NAME
 
@@ -34,7 +12,7 @@ Statistics::Forecast - calculates a future value
 
 =head1 DESCRIPTION
 
-This is an Oriented Object module that calculates a future value by using existing values. The new value is calculated by using linear regression.
+This is a dummy Oriented Object module that calculates a future value by using existing values. The new value is calculated by using linear regression.
 
 =head1 SYNOPSIS
 
@@ -42,7 +20,7 @@ This is an Oriented Object module that calculates a future value by using existi
 
 Create forecast object
 
-   my $FCAST = new Statistics::Forecast("My Forecast Name");
+   my $FCAST = Statistics::Forecast->new("My Forecast Name");
 
 Add data
 
@@ -78,7 +56,7 @@ Receives a forecast name, only to remember
 and returns the blessed data structure as
 a Statistics::Forecast object.
 
- my $FCAST = new Statistics::Forecast("My Forecast");
+ my $FCAST = Statistics::Forecast->new("My Forecast");
 
 =cut
 
@@ -239,11 +217,14 @@ sub dump {
            print ".  Predict inputed   : ", $self->{NextX}, "\n";
            print ".  Forecast value    : ", $self->{ForecastY}, "\n";
            print ".  --------------------------------------- \n";
-           print ".  Thanks for using Statistics::Forecast\n\n";
+           print ".  Thanks for using Statistics::Forecast\n";
+           print ".     contact: alexjfalcao\@hotmail.com\n\n";
         } else {
            print "Error: You have to use method <calc> \n";
            print "       before dump the values.\n";
+           print "       Exiting with error code 255.\n";
            print "\n";
+		   exit (255);
         }
 }
 
@@ -254,7 +235,7 @@ sub dump {
    my @Y = (1,3,7,12);
    my @X = (1,2,3,4);
 
-   my $FCAST = new Statistics::Forecast("My Forecast");
+   my $FCAST = Statistics::Forecast->new("My Forecast");
 
    $FCAST->{DataX} = \@X;
    $FCAST->{DataY} = \@Y;
@@ -274,7 +255,7 @@ This is the first version and calculates forecast value.
 
 =head1 VERSION
 
-0.1
+0.3
 
 =head1 COPYRIGHT
 
